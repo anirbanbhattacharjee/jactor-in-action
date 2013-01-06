@@ -42,7 +42,7 @@ public class GettingStarted {
         JAFuture future = new JAFuture();
         Test test = new Test();
         test.initialize(mailbox);
-        Start.REQ.send(future, test);
+        String s = Start.REQ.send(future, test);
         mailboxFactory.close();
         System.out.println("Getting started");
     }

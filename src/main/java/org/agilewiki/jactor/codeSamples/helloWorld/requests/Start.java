@@ -3,6 +3,7 @@ package org.agilewiki.jactor.codeSamples.helloWorld.requests;
 import org.agilewiki.jactor.Actor;
 import org.agilewiki.jactor.RP;
 import org.agilewiki.jactor.codeSamples.helloWorld.actors.Test;
+import org.agilewiki.jactor.codeSamples.helloWorld.actors.Test2;
 import org.agilewiki.jactor.lpc.JLPCActor;
 import org.agilewiki.jactor.lpc.Request;
 
@@ -14,7 +15,7 @@ import org.agilewiki.jactor.lpc.Request;
  * @author agilewiki
  *
  */
-public class Start extends Request<Object, Test> {
+public class Start extends Request<String, Test> {
 
     /**
      * Static instance of Start request.
@@ -31,14 +32,14 @@ public class Start extends Request<Object, Test> {
      */
     public void processRequest(JLPCActor targetActor, RP rp) throws Exception {
         Test testActor = (Test) targetActor;
-        testActor.processeRequest(REQ, rp);
+        testActor.processeRequest(this, rp);
     }
 
 
 
     @Override
     public final boolean isTargetType(final Actor targetActor) {
-        return targetActor instanceof Test;
+        return false;
     }
 
 }
